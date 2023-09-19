@@ -6,6 +6,8 @@ export default function SignIn(){
     return (
         <body className="box">
             <h2>Sign In</h2>
+
+            <hr />
             <form>
 
                 <div className="container">
