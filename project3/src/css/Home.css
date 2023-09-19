@@ -1,0 +1,42 @@
+main {
+    padding: 2%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+img {
+    max-width: 100%;
+    padding-top: 12%;
+}
+
+
+.post {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 20px;
+}
+  
+.text h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    padding-top: 12%;
+}
+
+.info {
+    margin: 6px 0px;
+    color: rgb(186, 186, 186);
+    font-size: 0.7rem;
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+}
+
+.author {
+    color: rgb(128, 123, 123);
+}
+
+.summary{
+    margin: 10px 0px;
+    line-height: 1.5rem;
+
+}

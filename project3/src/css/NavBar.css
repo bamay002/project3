@@ -1,0 +1,25 @@
+.navvy{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-si{
+  position: absolute;
+    right: 95px;
+}
+
+.navbar-su{
+  position: absolute;
+    right: 25px;
+}
+
+.logo{
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 30%;
+}
+
+.logo{
+  padding: 3%;
+}
+
