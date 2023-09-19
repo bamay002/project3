@@ -2,9 +2,9 @@ import '../css/SignUp.css'
 
 export default function SignUp(){
     return (
-        <form action="">
+        <form action="" className='page-su'>
             <div className="container">
-                <h2>Sign Up</h2>
+                <h1>Sign Up</h1>
                 <p>Please fill in this form to create an account with us ! :)</p>
                 <hr />
 
@@ -19,7 +19,7 @@ export default function SignUp(){
 
                 <p>By creating an account you agree to our <a href='#'> Terms & Privacy </a>.</p>
 
-                <div>
+                <div className='clearfix'>
                     <button type='button' className='cancelbtn'>Cancel</button>
                     <button type='submit' className='signupbtn'>Sign Up</button>
                 </div>

@@ -21,11 +21,11 @@ export default function SignIn(){
                     </label>
                     <input type="password" placeholder="Enter Password" name="password" required />
 
-                    <button type="submit">Login</button>
+                    <button className='butt-si' type="submit">Login</button>
 
                     <label className="remem">
-                        <input type="checkbox" name='remember' />
-                            Remember me
+                        <input type="checkbox" name='remember' className='rem'/>
+                           Remember me
                     </label>
                 </div>
 
