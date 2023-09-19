@@ -9,5 +9,5 @@ app.post('/signup', (req,res) => {
     const {username,password,repeatPassword} = req.body
     res.json({requestData:{username,password,repeatPassword}})
 })
-
+// before mongo
 app.listen(2222)
