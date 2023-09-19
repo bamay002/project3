@@ -5,12 +5,8 @@ import '../images/chisme-logo.png'
 export default function SignIn(){
     return (
         <body className="box">
-            <h1>Sign In</h1>
-
+            <h2>Sign In</h2>
             <form>
-                <div className="imagecontainer">
-                    <img className="logo-image" src="https://assets-jpcust.jwpsrv.com/thumbnails/u6e0g7ki-720.jpg"  alt='chisme logo' />
-                </div>
 
                 <div className="container">
                     <label for='username'>
@@ -31,7 +27,7 @@ export default function SignIn(){
                     </label>
                 </div>
 
-                <div className="container">
+                <div className="bott-container">
                     <span className="notmem">
                         Not a member? <a href="./SignUp" className="a-sign-in">Sign Up</a> 
                     </span>

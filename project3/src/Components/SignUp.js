@@ -1,5 +1,9 @@
 export default function SignUp(){
     return (
-        <div><h1>SIGN UP</h1></div>
+        <form action="">
+            <input type="text" placeholder="username" />
+            <input></input>
+
+        </form>
     )
 }
