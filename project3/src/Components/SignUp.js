@@ -5,13 +5,12 @@ export default function SignUp(){
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [repeatPassword, setRepeatPassword] = useState('')
 
     async function register(ev){
         ev.preventDefault()
         await fetch('http://localhost:2222/signup' , {
             method: 'POST',
-            body: JSON.stringify({username,password,repeatPassword}),
+            body: JSON.stringify({username,password}),
             headers: {'Content-Type' : 'application/json'}
         })
     }
@@ -38,14 +37,6 @@ export default function SignUp(){
                 value={password}
                 onChange={ev => setPassword(ev.target.value)}
                 required />
-
-                <label for='psw-repeat'><b>Repeat Password</b></label>
-                <input 
-                type='password' 
-                placeholder='Repeat Password' 
-                value={repeatPassword} 
-                onChange={ev => setRepeatPassword(ev.target.value)}
-                required/>
 
                 <p>By creating an account you agree to our <a href='#'> Terms & Privacy </a>.</p>
 
