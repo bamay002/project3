@@ -16,6 +16,7 @@ export default function SignUp(){
     }
 
     return (
+        <form action="" className='page-su'>
         <form action='' onSubmit={register} className='page-su'>
             <div className="container">
                 <h1>Sign Up</h1>
@@ -45,6 +46,7 @@ export default function SignUp(){
                     <button type='submit' className='signupbtn'>Sign Up</button>
                 </div>
             </div>
+        </form>
         </form>
     )
 }
