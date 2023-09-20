@@ -29,9 +29,13 @@ db.on('disconnected', () => {
 
 
 app.post('/signup', async (req,res) => {
-    const {username,password} = req.body;
-    const userDoc = await User.create({username,password});
-    res.json(userDoc);
+    try{
+        const {username,password} = req.body;
+        const userDoc = await User.create({username,password});
+        res.json(userDoc);
+    } catch(e){
+        res.status(400).json(e)
+    }
     
 })
 

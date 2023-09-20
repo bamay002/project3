@@ -8,11 +8,18 @@ export default function SignUp(){
 
     async function signup(ev){
         ev.preventDefault();
-        await fetch('http://localhost:2222/signup', {
+        const response = await fetch('http://localhost:2222/signup', {
             method: 'POST',
             body: JSON.stringify({username , password}),
             headers: {'Content-Type':'application/json'},
-        })
+        });
+        
+        if (response.status === 200){
+            alert('resgiration successful')
+        } else {
+            alert('registration failed')
+        }
+
     }
 
     return (
