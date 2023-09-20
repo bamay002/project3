@@ -31,7 +31,7 @@ export default function SignIn(){
 
                 <div className="bott-container">
                     <span className="notmem">
-                        Not a member? <a href="./SignUp" className="a-sign-in">Sign Up</a> 
+                        Not a member? <a href="./Signup" className="a-sign-in">Sign Up</a> 
                     </span>
 
                     <span className="forgotpass">

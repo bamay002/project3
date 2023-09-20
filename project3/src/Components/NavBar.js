@@ -27,7 +27,7 @@ export default function NavBar(){
 
       <Nav.Item className='navbar-si'>
         <Link to='/signUp'>
-          <Nav.Link href='/signUp' eventKey={'signUpPage'}>
+          <Nav.Link href='/signup' eventKey={'signUpPage'}>
             Sign Up
           </Nav.Link>
         </Link>
@@ -35,7 +35,7 @@ export default function NavBar(){
 
       <Nav.Item className='navbar-su'>
         <Link to='/signIn'>
-          <Nav.Link href='/signIn' eventKey={'signInPage'}>
+          <Nav.Link href='/signin' eventKey={'signInPage'}>
             Sign In
           </Nav.Link>
         </Link>

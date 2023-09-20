@@ -6,32 +6,31 @@ export default function SignUp(){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    async function register(ev){
-        ev.preventDefault()
-        await fetch('http://localhost:2222/signup' , {
+    async function signup(ev){
+        ev.preventDefault();
+        await fetch('http://localhost:2222/signup', {
             method: 'POST',
-            body: JSON.stringify({username,password}),
-            headers: {'Content-Type' : 'application/json'}
+            body: JSON.stringify({username , password}),
+            headers: {'Content-Type':'application/json'},
         })
     }
 
     return (
-        <form action="" className='page-su'>
-        <form action='' onSubmit={register} className='page-su'>
+        <form action='' className='page-su' onSubmit={signup}>
             <div className="container">
                 <h1>Sign Up</h1>
                 <p>Please fill in this form to create an account with us ! :)</p>
                 <hr />
 
-                <label for='username'><b>Username</b></label>
+                <label htmlFor='username'><b>Username</b></label>
                 <input 
                 type='text' 
                 placeholder='Enter Username' 
-                value={username} 
-                onChange={ev => setUsername(ev.target.value)} 
+                value={username}
+                onChange={ev => setUsername(ev.target.value)}
                 required/>
 
-                <label for='password'><b>Password</b></label>
+                <label htmlFor='password'><b>Password</b></label>
                 <input 
                 type='password' 
                 placeholder='Enter Password' 
@@ -46,7 +45,6 @@ export default function SignUp(){
                     <button type='submit' className='signupbtn'>Sign Up</button>
                 </div>
             </div>
-        </form>
         </form>
     )
 }
