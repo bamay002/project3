@@ -1,25 +1,50 @@
 
+import { useState } from 'react'
 import '../css/SignIn.css'
 import '../images/chisme-logo.png'
 
+
 export default function SignIn(){
+
+    const [username,setUsername] = useState('')
+    const [password,setPassword] = useState('')
+
+    async function signin(ev){
+        ev.preventDefault();
+        await fetch('http://localhost:2222/signin', {
+            method: 'POST',
+            body: JSON.stringify({username, password}),
+            headers: {'Content-Type':'application/json'},
+        })
+    }
+
     return (
         <body className="box">
             <h2>Sign In</h2>
 
             <hr />
-            <form>
+            <form onSubmit={signin}>
 
                 <div className="container">
                     <label for='username'>
                         <b>Username</b>
                     </label>
-                    <input type="text" placeholder="Enter Username" name="username" required />
+                    <input 
+                        type="text" 
+                        placeholder="Enter Username" 
+                        value={username} 
+                        onChange={ev => setUsername(ev.target.value)} 
+                        required />
 
                     <label for='password'>
                         <b>Password</b>
                     </label>
-                    <input type="password" placeholder="Enter Password" name="password" required />
+                    <input 
+                        type="password"
+                        placeholder="Enter Password"
+                        value={password} 
+                        onChange={ev => setPassword(ev.target.value)} 
+                        required />
 
                     <button className='butt-si' type="submit">Login</button>
 
@@ -31,7 +56,7 @@ export default function SignIn(){
 
                 <div className="bott-container">
                     <span className="notmem">
-                        Not a member? <a href="./Signup" className="a-sign-in">Sign Up</a> 
+                        Not a member? <a href="./signup" className="a-sign-in">Sign Up</a> 
                     </span>
 
                     <span className="forgotpass">

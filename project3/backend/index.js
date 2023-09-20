@@ -5,8 +5,8 @@ const User = require('./models/User');
 const bcrypt = require('bcryptjs');
 const app = express();
 
-var salt = bcrypt.genSaltSync(10)
-  //hash pass
+var salt = bcrypt.genSaltSync(10) //hash password
+
 app.use(cors());
 app.use(express.json());
 
@@ -43,6 +43,13 @@ app.post('/signup', async (req,res) => {
         res.status(400).json(e)
     }
     
+})
+
+app.post('/signin', async (req,res) => {
+  const {username,password} = req.body;
+  const userDoc = await User.findOne({username})
+  const passOk = bcrypt.compareSync(password, userDoc.password);
+  res.json(passOk)
 })
 
 
