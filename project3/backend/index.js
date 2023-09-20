@@ -2,8 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./models/User');
+const bcrypt = require('bcryptjs');
 const app = express();
 
+var salt = bcrypt.genSaltSync(10)
+  //hash pass
 app.use(cors());
 app.use(express.json());
 
@@ -31,7 +34,10 @@ db.on('disconnected', () => {
 app.post('/signup', async (req,res) => {
     try{
         const {username,password} = req.body;
-        const userDoc = await User.create({username,password});
+        const userDoc = await User.create({
+            username,
+            password:bcrypt.hashSync(password,salt)
+        });
         res.json(userDoc);
     } catch(e){
         res.status(400).json(e)
