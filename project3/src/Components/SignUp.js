@@ -48,7 +48,7 @@ export default function SignUp(){
                 <p>By creating an account you agree to our <a href='#'> Terms & Privacy </a>.</p>
 
                 <div className='clearfix'>
-                    <button type='button' className='cancelbtn'>Cancel</button>
+                    <button type='button' className='cancelbtn'><a className='cancelback' href='/'>Cancel</a></button>
                     <button type='submit' className='signupbtn'>Sign Up</button>
                 </div>
             </div>

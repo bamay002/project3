@@ -2,20 +2,33 @@
 import { useState } from 'react'
 import '../css/SignIn.css'
 import '../images/chisme-logo.png'
+import { Navigate } from 'react-router-dom'
 
 
 export default function SignIn(){
 
     const [username,setUsername] = useState('')
     const [password,setPassword] = useState('')
+    const [redirect,setRedirect] = useState('')
 
     async function signin(ev){
         ev.preventDefault();
-        await fetch('http://localhost:2222/signin', {
+        const response = await fetch('http://localhost:2222/signin', {
             method: 'POST',
             body: JSON.stringify({username, password}),
             headers: {'Content-Type':'application/json'},
+            credentials: 'include'
         })
+
+        if (response.ok){
+            setRedirect(true)
+        } else {
+            alert('wrong credentials')
+        }
+    }
+
+    if (redirect){
+        return <Navigate to={'/'} />
     }
 
     return (
