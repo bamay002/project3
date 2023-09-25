@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
 }
 .navbar-si{
   position: absolute;
@@ -13,6 +14,13 @@
     right: 25px;
 }
 
+.navbar-cr{
+  
+  position: absolute;
+    right: 40px;
+    top: 80px;
+}
+
 .logo{
   font-weight: bold;
   font-size: 1.5rem;
@@ -21,5 +29,10 @@
 
 .logo{
   padding: 3%;
+}
+
+*{
+  text-decoration: none;
+  color: black;
 }
 

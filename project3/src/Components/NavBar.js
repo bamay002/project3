@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import { Link, Routes, Route } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,12 +10,25 @@ import '../images/chisme-logo.png'
 import '../css/NavBar.css'
 
 export default function NavBar(){
+  const [username, setUsername] = useState(null);
 
     useEffect(() => {
       fetch('http://localhost:2222/profile' , {
         credentials: 'include',
+      }).then(response => {
+        response.json().then(userInfo => {
+          setUsername(userInfo.username)
+        })
       })
     }, [])
+
+    function logout(){
+      fetch('http://localhost:2222/logout', {
+        credentials:'include',
+        method:'POST'
+      })
+      setUsername(null)
+    }
 
     return(
     <>
@@ -31,22 +44,44 @@ export default function NavBar(){
         </Link>
       </Nav.Item>
 
+        {username && (
+          <>
+          <Nav.Item className='navbar-si'>
+              <Link to='/create'>
+                <Nav.Link href='/create' eventKey={'createPage'}>
+                  Create New Post
+                </Nav.Link>
+              </Link>
+          </Nav.Item>
 
-      <Nav.Item className='navbar-si'>
-        <Link to='/signUp'>
-          <Nav.Link href='/signup' eventKey={'signUpPage'}>
-            Sign Up
-          </Nav.Link>
-        </Link>
-      </Nav.Item>
+          <Nav.Item className='navbar-su'>
+              <a onClick={logout}>Logout</a>
+          </Nav.Item>
 
-      <Nav.Item className='navbar-su'>
-        <Link to='/signIn'>
-          <Nav.Link href='/signin' eventKey={'signInPage'}>
-            Sign In
-          </Nav.Link>
-        </Link>
-      </Nav.Item>
+          <Nav.Item className='navbar-cr'>
+              <p>Welcome Back {username}</p>
+          </Nav.Item>
+          </>
+        )}
+        {!username && (
+          <>
+            <Nav.Item className='navbar-si'>
+              <Link to='/signup'>
+                <Nav.Link href='/signup' eventKey={'signUpPage'}>
+                  Sign Up
+                </Nav.Link>
+              </Link>
+            </Nav.Item>
+            
+            <Nav.Item className='navbar-su'>
+              <Link to='/signin'>
+                <Nav.Link href='/signin' eventKey={'signInPage'}>
+                  Sign In
+                </Nav.Link>
+              </Link>
+            </Nav.Item>
+          </>
+        )}
 
   </Nav>
 </div>
