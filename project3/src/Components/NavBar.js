@@ -9,6 +9,7 @@ import NotFound from './NotFound';
 import '../images/chisme-logo.png'
 import '../css/NavBar.css'
 import { UserContext } from '../UserContext';
+import CreatePost from './CreatePost';
 
 export default function NavBar(){
 
@@ -93,7 +94,8 @@ export default function NavBar(){
 <Routes>
 <Route path='/' element={<Home />} />
 <Route path='/signUp' element={<SignUp />} />
-<Route path='signIn' element={<SignIn />} />
+<Route path='/signIn' element={<SignIn />} />
+<Route path='/create' element={<CreatePost />} />
 <Route path='*' element={<NotFound />} />
 </Routes>
 

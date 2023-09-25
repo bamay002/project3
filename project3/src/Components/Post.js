@@ -9,10 +9,9 @@ function Post (){
             </div>
 
             <div className='text'>
-            <h2>Cruel Summer Now on Hulu!</h2>
                 <p className="info">
                 <a className="author">Beebz</a>
-                <time>2023-09-12 07:15</time>
+                <time>2023-09-12</time>
                 </p>
 
                 <p className="summary">
