@@ -1,0 +1,6 @@
+input[type=summary]{
+    text-align: left;
+}
+input[type=file]{
+   color: grey;
+}

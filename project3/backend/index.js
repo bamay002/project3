@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const User = require('./models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+const { Navigate } = require('react-router-dom');
 const app = express();
 
 const salt = bcrypt.genSaltSync(10) //hash password
@@ -78,5 +79,9 @@ app.get('/profile', (req,res) => {
 
 app.post('/logout', (req,res) => {
   res.cookie('token', '').json('ok')
+})
+
+app.post('/post', (req,res) => {
+  
 })
 app.listen(2222);
