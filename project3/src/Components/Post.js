@@ -1,10 +1,11 @@
+import React from "react"
 
 function Post (){
     return(
         <div className='post'>
 
             <div className='image'>
-            <img src='https://shorturl.at/jpr57' alt='cruel summer image' />
+            <img src='https://shorturl.at/jpr57' alt='cruel summer flyer' />
             </div>
 
             <div className='text'>

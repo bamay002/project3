@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import { Link, Routes, Route } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,6 +10,13 @@ import '../images/chisme-logo.png'
 import '../css/NavBar.css'
 
 export default function NavBar(){
+
+    useEffect(() => {
+      fetch('http://localhost:2222/profile' , {
+        credentials: 'include',
+      })
+    }, [])
+
     return(
     <>
       <Navbar>

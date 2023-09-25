@@ -1,5 +1,6 @@
 import '../css/SignUp.css'
 import { useState } from 'react'
+import React from 'react'
 
 export default function SignUp(){
 
@@ -45,7 +46,7 @@ export default function SignUp(){
                 onChange={ev => setPassword(ev.target.value)}
                 required />
 
-                <p>By creating an account you agree to our <a href='#'> Terms & Privacy </a>.</p>
+                <p>By creating an account you agree to our <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank' > Terms & Privacy </a>.</p>
 
                 <div className='clearfix'>
                     <button type='button' className='cancelbtn'><a className='cancelback' href='/'>Cancel</a></button>

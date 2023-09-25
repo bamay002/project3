@@ -1,15 +1,15 @@
-
 import { useState } from 'react'
 import '../css/SignIn.css'
 import '../images/chisme-logo.png'
 import { Navigate } from 'react-router-dom'
+import React from 'react'
 
 
 export default function SignIn(){
 
-    const [username,setUsername] = useState('')
-    const [password,setPassword] = useState('')
-    const [redirect,setRedirect] = useState('')
+    const [username,setUsername] = useState('');
+    const [password,setPassword] = useState('');
+    const [redirect,setRedirect] = useState(false);
 
     async function signin(ev){
         ev.preventDefault();
@@ -17,8 +17,8 @@ export default function SignIn(){
             method: 'POST',
             body: JSON.stringify({username, password}),
             headers: {'Content-Type':'application/json'},
-            credentials: 'include'
-        })
+            credentials: 'include',
+        });
 
         if (response.ok){
             setRedirect(true)
