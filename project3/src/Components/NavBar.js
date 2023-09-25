@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import { Link, Routes, Route } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,27 +8,31 @@ import Home from './Home';
 import NotFound from './NotFound';
 import '../images/chisme-logo.png'
 import '../css/NavBar.css'
+import { UserContext } from '../UserContext';
 
 export default function NavBar(){
-  const [username, setUsername] = useState(null);
 
-    useEffect(() => {
-      fetch('http://localhost:2222/profile' , {
-        credentials: 'include',
-      }).then(response => {
-        response.json().then(userInfo => {
-          setUsername(userInfo.username)
-        })
-      })
-    }, [])
+  const {setUserInfo,userInfo} = useContext(UserContext);
+  
+  useEffect(() => {
+    fetch('http://localhost:2222/profile', {
+      credentials: 'include',
+    }).then(response => {
+      response.json().then(userInfo => {
+        setUserInfo(userInfo);
+      });
+    });
+  }, []);
 
-    function logout(){
-      fetch('http://localhost:2222/logout', {
-        credentials:'include',
-        method:'POST'
-      })
-      setUsername(null)
-    }
+  function logout() {
+    fetch('http://localhost:2222/signout', {
+      credentials: 'include',
+      method: 'POST',
+    });
+    setUserInfo(null);
+  }
+
+  const username = userInfo ? userInfo.username : undefined;
 
     return(
     <>

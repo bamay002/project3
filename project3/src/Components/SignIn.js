@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import '../css/SignIn.css'
 import '../images/chisme-logo.png'
 import { Navigate } from 'react-router-dom'
 import React from 'react'
+import { UserContext } from '../UserContext'
 
 
 export default function SignIn(){
@@ -10,6 +11,7 @@ export default function SignIn(){
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
     const [redirect,setRedirect] = useState(false);
+    const {setUserInfo} = useContext(UserContext)
 
     async function signin(ev){
         ev.preventDefault();
@@ -21,7 +23,10 @@ export default function SignIn(){
         });
 
         if (response.ok){
-            setRedirect(true)
+            response.json().then(userInfo => {
+                setUserInfo(userInfo)
+                setRedirect(true)
+            })
         } else {
             alert('wrong credentials')
         }
