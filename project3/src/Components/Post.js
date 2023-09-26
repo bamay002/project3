@@ -1,4 +1,5 @@
 import React from "react"
+import { format } from "date-fns"
 
 function Post ({summary,cover,createdAt}){
     return(
@@ -11,7 +12,7 @@ function Post ({summary,cover,createdAt}){
             <div className='text'>
                 <p className="info">
                 <a className="author">Beebz</a>
-                <time>{createdAt}</time>
+                <time>{format(new Date(createdAt), 'MMM d, yyyy  hh:mm aaa')}</time>
                 </p>
 
                 <p className="summary">
