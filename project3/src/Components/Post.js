@@ -6,7 +6,7 @@ function Post ({_id,summary,cover,createdAt, author}){
     return(
         <div className='post'>
 
-            <div className='image'>
+            <div className='image-p'>
                 <Link to={`/post/${_id}`} >
                     <img src={'http://localhost:2222/'+cover} alt='image that goes with post' />
                 </ Link> 

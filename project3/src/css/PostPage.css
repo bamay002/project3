@@ -1,0 +1,11 @@
+.image-pp {
+    width: 50%;
+    height: 500px;
+    object-fit: contain;
+    position: relative;
+    left: 200px;
+}
+
+.info-pp{
+    padding-top: 10%;
+}

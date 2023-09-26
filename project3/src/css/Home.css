@@ -12,8 +12,14 @@ img {
 
 .post {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 1fr;
+    /* grid-template-columns: 0.9fr 1.1fr; */
     gap: 20px;
+}
+@media screen and (min-width: 500px) {
+    .post{
+        grid-template-columns: 0.9fr 1.1fr;
+    }
 }
   
 .text  {

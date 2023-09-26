@@ -2,6 +2,9 @@ import React from "react"
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useState } from "react"
+import '../css/PostPage.css'
+import format from "date-fns/format"
+
 
 export default function PostPage(){
     const {id} = useParams()
@@ -19,8 +22,13 @@ export default function PostPage(){
     if (!postInfo) return '';
 
     return(
-        <div>
-            <img src={`http://localhost:2222/${postInfo.cover}`} alt=""/>
+        <div className="post">
+            <img className="image-pp" src={`http://localhost:2222/${postInfo.cover}`} alt=""/>
+            <div className="info-pp">
+                <time>{format(new Date(postInfo.createdAt), 'MMM d, yyyy  hh:mm aaa')}</time>
+                <div className="author">by @{postInfo.author.username}</div>
+                <div className="text" dangerouslySetInnerHTML={{__html:postInfo.summary}} />
+            </div>
         </div>
     )
 }
