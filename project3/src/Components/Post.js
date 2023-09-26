@@ -1,6 +1,6 @@
 import React from "react"
 
-function Post (){
+function Post ({summary,cover,createdAt}){
     return(
         <div className='post'>
 
@@ -11,11 +11,11 @@ function Post (){
             <div className='text'>
                 <p className="info">
                 <a className="author">Beebz</a>
-                <time>2023-09-12</time>
+                <time>{createdAt}</time>
                 </p>
 
                 <p className="summary">
-                Has anyone watched season two of cruel summer??? its out now!!!!
+                {summary}
                 </p>
             </div>
 
