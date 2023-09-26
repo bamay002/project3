@@ -6,7 +6,7 @@ function Post ({summary,cover,createdAt, author}){
         <div className='post'>
 
             <div className='image'>
-            <img src='https://shorturl.at/jpr57' alt='cruel summer flyer' />
+            <img src={'http://localhost:2222/'+cover} alt='' />
             </div>
 
             <div className='text'>
