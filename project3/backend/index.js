@@ -10,6 +10,7 @@ const app = express();
 const multer = require('multer')
 const uploadMiddleware = multer({ dest: 'uploads/' })
 const fs = require('fs')
+const Post = require('./models/Post') ;
 
 const salt = bcrypt.genSaltSync(10) //hash password
 const secret = 'abcdefghijklmnopqrstuvwxyz'
@@ -84,11 +85,20 @@ app.post('/logout', (req,res) => {
   res.cookie('token', '').json('ok')
 })
 
-app.post('/post',  uploadMiddleware.single('file'), (req,res) => {
+app.post('/post',  uploadMiddleware.single('file'), async (req,res) => {
+  //image 
   const {originalname, path} = req.file
   const parts = originalname.split('.')
   const ext = parts[parts.length - 1]
-  fs.renameSync(path, path+'.'+ext)
-  res.json({ext})
+  const newPath = path+'.'+ext
+  fs.renameSync(path, newPath)
+  //post
+  const {summary} = req.body
+  const postDoc = await Post.create({
+    summary,
+    cover: newPath,
+  })
+  res.json({postDoc})
+
 })
 app.listen(2222);
