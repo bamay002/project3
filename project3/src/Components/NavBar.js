@@ -10,6 +10,7 @@ import '../images/chisme-logo.png'
 import '../css/NavBar.css'
 import { UserContext } from '../UserContext';
 import CreatePost from './CreatePost';
+import PostPage from './PostPage';
 
 export default function NavBar(){
 
@@ -97,6 +98,7 @@ export default function NavBar(){
 <Route path='/signIn' element={<SignIn />} />
 <Route path='/create' element={<CreatePost />} />
 <Route path='*' element={<NotFound />} />
+<Route path='/post/:id' element={<PostPage />} /> 
 </Routes>
 
 </Navbar>
