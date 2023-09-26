@@ -5,18 +5,22 @@ import { useState } from "react"
 
 export default function PostPage(){
     const {id} = useParams()
-    const [postInfo, setPostInfo] = useState('')
+    const [postInfo, setPostInfo] = useState(null)
 
     useEffect(()=> {
         fetch(`http://localhost:2222/post/${id}`)
         .then(response => {
-            response.json(postInfo => {
+            response.json().then(postInfo => {
                 setPostInfo(postInfo)
             })
         })
     }, [])
 
+    if (!postInfo) return '';
+
     return(
-        <div>post page</div>
+        <div>
+            <img src={`http://localhost:2222/${postInfo.cover}`} alt=""/>
+        </div>
     )
 }
