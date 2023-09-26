@@ -86,24 +86,34 @@ app.post('/logout', (req,res) => {
 })
 
 app.post('/post',  uploadMiddleware.single('file'), async (req,res) => {
-  //image 
+
   const {originalname, path} = req.file
   const parts = originalname.split('.')
   const ext = parts[parts.length - 1]
   const newPath = path+'.'+ext
   fs.renameSync(path, newPath)
-  //post
-  const {summary} = req.body
-  const postDoc = await Post.create({
-    summary,
-    cover: newPath,
-  })
-  res.json({postDoc})
+
+  const {token} = req.cookies;
+  jwt.verify(token, secret, {}, async (err,info) => {
+    if (err) throw err;
+      const {summary} = req.body
+      const postDoc = await Post.create({
+      summary,
+      cover: newPath,
+      author: info.id
+    })
+    res.json({postDoc})
+  });
 
 })
 
 app.get('/post', async (req,res) => {
-  res.json(await Post.find())
+  res.json(
+    await Post.find()
+      .populate('author', ['username'])
+      .sort({createdAt: -1})
+      .limit(20)
+    )
 })
 
 app.listen(2222);

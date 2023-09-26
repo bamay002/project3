@@ -4,6 +4,7 @@ const {Schema, model} = mongoose;
 const PostSchema = new Schema({
     summary:String, //summary
     cover:String,   //file
+    author: {type:Schema.Types.ObjectId, ref:'User'},
 }, {
     timestamps: true,
 })
